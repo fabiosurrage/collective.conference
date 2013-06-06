@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<object name="portal_skins">
+    <object name="collective_conference_scripts"
+        meta_type="Filesystem Directory View"
+        directory="collective.conference:skins/collective_conference_scripts"/>
+    <skin-path name="*">
+        <layer name="collective_conference_scripts" insert-after="custom"/>
+    </skin-path>
+
+    <object name="collective_conference_templates"
+            meta_type="Filesystem Directory View"
+            directory="collective.conference:skins/collective_conference_templates"/>
+    <skin-path name="*">
+        <layer name="camara_content_templates" insert-after="custom"/>
+    </skin-path>
+</object>

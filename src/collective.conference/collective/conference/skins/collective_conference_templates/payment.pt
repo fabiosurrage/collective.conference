@@ -1,0 +1,97 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="collective.conference">
+<body>
+
+<metal:main fill-slot="main">
+    <dl class="portalMessage error">
+        <dt i18n:translate="">Info</dt>
+        <dd i18n:translate="">
+           This registration is not paid. Please, click on the image button bellow
+           to be taken to our payment processor partner.
+        </dd>
+    </dl>
+    <h2 i18n:translate="">Registration Info</h2>
+    <div id="registration_details" tal:define="pm context/portal_membership">
+        <h3 i18n:translate="">Details</h3>
+        <span i18n:translate="">Registration Type</span>:&nbsp;<strong><span>Individual</span></strong><br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span i18n:translate="">By user</span>:&nbsp;<strong><span tal:content="python: pm.getAuthenticatedMember().getProperty('fullname')">Dorneles Tremea</span></strong><br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span i18n:translate="">When</span>:&nbsp;<strong><span>12/09/2011 12:32</span></strong><br/>
+        <span i18n:translate="">Contact e-mail</span>:&nbsp;<strong><span tal:content="python: pm.getAuthenticatedMember().getProperty('email')">deo@x3ng.com.br</span></strong><br/>
+        <span i18n:translate="">Location</span>:&nbsp;<strong><span tal:content="python: pm.getAuthenticatedMember().getProperty('city')"></span>,<span tal:content="python: pm.getAuthenticatedMember().getProperty('state')">Rio Grande do Sul</span>, <span tal:content="python: pm.getAuthenticatedMember().getProperty('country')">BR</span> </strong><br/>
+
+
+        <h3 i18n:translate="">Pricing</h3>
+        <div>
+            <span i18n:translate="">Base price</span>:&nbsp;<strong><span>UsD50.00</span></strong><br/>
+            <span i18n:translate="">Total price</span>:&nbsp;<strong><span>UsD123.00</span></strong><br/>
+        </div>
+        <div>
+            <span i18n:translate="">Price paid</span>:&nbsp;<strong><span>UsD123.00</span></strong><br/>
+        </div>
+    </div>
+    <h2 i18n:translate="">Attendees</h2>
+    <p i18n:translate="">To register to a training, click on the name of an attendee and then select the desired sessions</p>
+    <div id="attendees">
+        <table class="listing">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th i18n:translate="">Name</th>
+                    <th i18n:translate="">Organization</th>
+                    <th i18n:translate="">E-mail</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td >12</td>
+                    <td><a href="">Name</a></td>
+                    <td >Organization</td>
+                    <td >E-mail</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div >
+        <h2 i18n:translate="">Payment options</h2>
+        <div id="payment-details">
+            <span i18n:translate="">Total price</span>:&nbsp;<strong><span >UsD123.00</span></strong>
+        </div>
+        <div id="empenho" >
+            <br/><br/>
+            Por favor providencie a emiss&atilde;o do empenho para:
+            <br/><br/>
+            <strong>Diaspar Servi&ccedil;os de Informa&ccedil;&otilde;es LTDA</strong><br/>
+            <strong>10.782.042/0001-85</strong><br/>
+            <address>
+                Rua dos Pinheiros, 836 - Cj 6<br/>
+                Pinheiros - S&atilde;o Paulo - SP<br/>
+                05422-001<br/>
+                financeiro@diaspar.com.br<br/>
+            </address>
+            <br />
+        </div>
+        <br />
+        <div id="paypal">
+            <form name="_xclick" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                <input type="hidden" name="cmd" value="_xclick">
+                <input type="hidden" name="business" value="fabiosurrage@gmail.com">
+                <input type="hidden" name="currency_code" value="USD" />
+                <input type="hidden" name="amount" value="25" >
+                <input type="hidden" name="quantity" value="1" />
+                <input type="hidden" name="item_name" value="Inscription" />
+                <input type="hidden" name="item_number" value="1" />
+                <input type="image" src="https://www.paypalobjects.com/pt_BR/BR/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The easier and safer way to pay online!">
+                <img alt="" border="0" src="https://www.paypalobjects.com/pt_BR/i/scr/pixel.gif" width="1" height="1">
+            </form>
+        </div>
+    </div>
+   
+</metal:main>
+
+</body>
+</html>

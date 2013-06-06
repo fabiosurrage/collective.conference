@@ -7,6 +7,8 @@
 
   <!--five:registerPackage package="." initialize=".initialize" /-->
 
+  <include file="skins.zcml" />
+  
   <includeDependencies package="." />
   
   <i18n:registerTranslations directory="locales" />
