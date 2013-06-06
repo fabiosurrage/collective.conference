@@ -341,3 +341,6 @@ msgstr "Envie seu treinamento"
 
 msgid "Change your informations"
 msgstr "Altere seu cadastro"
+
+msgid "My talks and trainings"
+msgstr "Minhas palestras e treinamentos"
