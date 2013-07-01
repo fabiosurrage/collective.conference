@@ -203,7 +203,7 @@ class PaymentMethodsVocabulary(object):
         terms = []
         types = [('cash', _(u'Cash / At the conference')),
                  ('paypal', _(u'PayPal')),
-                 ('pagseguro', _(u'Pagseguro'))],
+                 ('pagseguro', _(u'Pagseguro'))]
         for key, value in types:
             term = (key, key, value)
             terms.append(SimpleVocabulary.createTerm(*term))
