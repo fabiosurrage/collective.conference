@@ -1,4 +1,4 @@
 collective.conference
 =====================
 
-Manage inscriptions and submission of lectures and trainings
+Manage registrations and submission of lectures and trainings
