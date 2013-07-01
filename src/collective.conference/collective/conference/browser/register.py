@@ -16,8 +16,10 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from zope import schema
 from zope.component import getMultiAdapter
 from zope.event import notify
-from zope.interface import Interface
+from zope.interface import Interface, invariant, Invalid
 from zope.lifecycleevent import ObjectCreatedEvent
+
+from apybcheck import check_apyb_membership
 
 grok.templatedir('templates')
 
@@ -63,6 +65,17 @@ class IIndividualForm(IRegistration, IAttendee, IAddress,
     form.omitted('address')
     form.omitted('postcode')
     form.omitted('registration_type')
+
+
+class IAPyBRegistration(IIndividualForm):
+
+    @invariant
+    def addressInvariant(data):
+        check = check_apyb_membership(data.email)
+        if check == 'invalid':
+            raise Invalid(_(u"The email address you provided does not match any APyB merbership account."))
+        elif check == 'inactive':
+            raise Invalid(_(u"Your APyB merbership is inactive and needs to be renewed."))
 
 
 class IAttendeeItem(Interface):
@@ -318,16 +331,7 @@ class APyBRegistrationForm(AddForm):
     label = _(u"APyB Member Registration")
     registration_type = u'apyb'
 
-    def update(self):
-        super(APyBRegistrationForm, self).update()
-        tools = getMultiAdapter((self.context, self.request),
-                                name=u'plone_tools')
-        mt = tools.membership()
-        member = mt.getAuthenticatedMember()
-        self.groups = member.getGroups()
-        #if not u'Associados' in groups:
-        #    url = self.context.absolute_url()
-        #    return self.request.response.redirect(url)
+    schema = IAPyBRegistration
 
 
 class StudentRegistrationForm(AddForm):
