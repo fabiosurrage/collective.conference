@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<rolemap>
+  <permissions>
+    <permission name="collective.conference: Add Attendee" acquire="False">
+      <role name="Manager"/>
+      <role name="Member"/>
+    </permission>
+    <permission name="collective.conference: Add Registration" acquire="False">
+      <role name="Manager"/>
+      <role name="Member"/>
+    </permission>
+    <permission name="collective.conference: Add Registrations" acquire="False">
+      <role name="Manager"/>
+      <role name="Editor"/>
+    </permission>
+  </permissions>
+</rolemap>

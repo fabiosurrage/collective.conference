@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 from five import grok
 from zope import schema
-from collective.conference import _
+from collective.conference import MessageFactory as _
 from plone.directives import form
 from plone.directives import dexterity
 

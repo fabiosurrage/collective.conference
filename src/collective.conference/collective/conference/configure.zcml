@@ -6,20 +6,16 @@
     i18n_domain="collective.conference">
 
   <!--five:registerPackage package="." initialize=".initialize" /-->
-
-  <include file="skins.zcml" />
   
   <includeDependencies package="." />
-  
+
+
   <i18n:registerTranslations directory="locales" />
   
-  <genericsetup:registerProfile
-      name="default"
-      title="collective.conference"
-      directory="profiles/default"
-      description="Installs the collective.conference package"
-      provides="Products.GenericSetup.interfaces.EXTENSION"
-      />
+  <include file="skins.zcml" />
+  <include file="permissions.zcml" />
+  <include file="profiles.zcml" />
+
   
   <grok:grok package="." />
   

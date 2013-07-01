@@ -25,6 +25,7 @@ setup(name='collective.conference',
       zip_safe=False,
       install_requires=[
           'setuptools',
+          'collective.z3cform.datagridfield',
           'plone.app.users',
           'plone.app.dexterity [grok, relations]',
           # -*- Extra requirements: -*-

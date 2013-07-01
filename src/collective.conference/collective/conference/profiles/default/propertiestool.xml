@@ -28,4 +28,14 @@
    <element value="accept" />
   </property>
  </object>
+ <object name="navtree_properties">
+  <property name="parentMetaTypesNotToQuery" type="lines">
+   <element value="registration"/>
+  </property>
+  <property name="metaTypesNotToList" type="lines">
+   <element value="attendee"/>
+   <element value="registration"/>
+  </property>
+ </object>
+
 </object>
